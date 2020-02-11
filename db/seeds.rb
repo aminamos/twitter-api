@@ -5,3 +5,6 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Tweet.create(text: 'first tweet', num_likes: 0, num_retweets: 0)
+Like.create(tweet_id: 1)
