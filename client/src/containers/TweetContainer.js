@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import TweetList from '../components/tweets/TweetList'
 
 class TweetContainer extends Component {
   render() {
     return (
       <div>
-        <p>tweet container</p>
+        <TweetList tweets={this.props.tweets} />
       </div>
     );
   }
