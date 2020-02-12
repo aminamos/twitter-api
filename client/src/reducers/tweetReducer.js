@@ -1,4 +1,4 @@
-const initalState = {
+const initialState = {
   tweet: [],
   loading: false,
   error: ''
@@ -8,10 +8,11 @@ const tweetReducer = (state = initialState, action) => {
   const data = action.payload;
 
   switch (action.type) {
-    case 'SET_TWEETS':
-      return [...data];
+    case 'GET_TWEETS':
+      // return [...data];
+      return state
     case 'ADD_TWEET':
-      return;
+      return state
     case 'REMOVE_TWEET':
       return;
     default:

@@ -6,7 +6,7 @@ class App {
 render() {
   return(
     <div>
-      
+      this is the app js file
     </div>
   )
 }
