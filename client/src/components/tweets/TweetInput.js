@@ -4,19 +4,19 @@ import { postTweet } from '../../actions/index'
 
 class TweetInput extends Component {
   state = {
-    inputText: ''
+    text: '',
+    loading: false
   }
 
   handleChange = event => {
     this.setState({
-      inputText: event.target.value
+      text: event.target.value
     })
   }
 
   handleSubmit = event => {
     event.preventDefault()
-    let tweetText = this.state.inputText
-    this.props.postTweet(tweetText)
+    this.props.postTweet(this.state)
   }
 
   render() {
@@ -38,7 +38,7 @@ class TweetInput extends Component {
 
 const mapDispatchToProps = dispatch => {
   return {
-    postTweet: (text) => dispatch(postTweet(text))
+    postTweet: (stateObject) => dispatch(postTweet(stateObject))
   }
 }
 

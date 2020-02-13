@@ -23,8 +23,7 @@ const tweetReducer = (state = initialState, action) => {
     case 'POST_TWEET':
       return {
         ...state,
-        tweets: [...state.tweets, action.payload.text],
-        loading: false
+        tweets: [...state.tweets, action.payload]
       }
     case 'REMOVE_TWEET':
       return state;

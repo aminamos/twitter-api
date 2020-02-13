@@ -8,11 +8,11 @@ export const fetchTweets = () => {
   };
 };
 
-export const postTweet = tweetText => {
+export const postTweet = state => {
   return dispatch => {
     let eventObj = {
       tweet: {
-        text: tweetText
+        text: state.text
       }
     }
 
@@ -27,8 +27,7 @@ export const postTweet = tweetText => {
 
     fetch('http://localhost:3000/tweets',configObj)
       .then(resp => resp.json())
-      // .then(obj => console.log(obj))
-      .then(obj => dispatch({ type: 'POST_TWEETS', payload: obj }));
+      .then(obj => dispatch({ type: 'POST_TWEET', payload: obj }));
   };
 };
 
