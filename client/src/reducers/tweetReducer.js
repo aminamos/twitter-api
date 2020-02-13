@@ -17,10 +17,10 @@ const tweetReducer = (state = initialState, action) => {
     case 'FETCH_TWEETS':
       return {
         ...state,
-        tweets: action.tweets,
+        tweets: action.payload,
         loading: false
       }
-    case 'ADD_TWEET':
+    case 'POST_TWEET':
       return state
     case 'REMOVE_TWEET':
       return state;

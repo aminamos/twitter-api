@@ -5,7 +5,7 @@ class TweetContainer extends Component {
   render() {
     return (
       <div>
-        <TweetList tweets={this.props.tweets} />
+        <TweetList />
       </div>
     );
   }
