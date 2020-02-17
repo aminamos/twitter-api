@@ -5,20 +5,22 @@ class TweetsController < ApplicationController
   # GET /tweets.json
   def index
     @tweets = Tweet.all
+    render json: @tweets
   end
 
   # GET /tweets/1
   # GET /tweets/1.json
   def show
+    render json: @tweet
   end
 
   # POST /tweets
   # POST /tweets.json
   def create
     @tweet = Tweet.new(tweet_params)
-
     if @tweet.save
-      render :show, status: :created, location: @tweet
+      # render :show, status: :created, location: @tweet
+      render json: @tweet
     else
       render json: @tweet.errors, status: :unprocessable_entity
     end
@@ -37,6 +39,10 @@ class TweetsController < ApplicationController
   # DELETE /tweets/1
   # DELETE /tweets/1.json
   def destroy
+    Like.where(tweet_id: @tweet.id).each do |like|
+      like.delete
+    end
+    
     @tweet.destroy
   end
 

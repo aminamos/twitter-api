@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 class UserContainer extends Component {
-  rendeer() {
+  render() {
     return (
       <div>
         <p>user container</p>

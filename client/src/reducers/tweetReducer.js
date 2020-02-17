@@ -1,19 +1,32 @@
-const initalState = {
-  tweet: [],
-  loading: false,
-  error: ''
+const initialState = {
+  tweets: [],
+  loading: false
+  // add error
 };
 
 const tweetReducer = (state = initialState, action) => {
-  const data = action.payload;
-
+  console.log(action)
+  
   switch (action.type) {
-    case 'SET_TWEETS':
-      return [...data];
-    case 'ADD_TWEET':
-      return;
+    case 'LOADING_TWEETS':
+      return {
+        ...state,
+        tweets: [...state.tweets],
+        loading: true
+      }
+    case 'FETCH_TWEETS':
+      return {
+        ...state,
+        tweets: action.payload,
+        loading: false
+      }
+    case 'POST_TWEET':
+      return {
+        ...state,
+        tweets: [...state.tweets, action.payload]
+      }
     case 'REMOVE_TWEET':
-      return;
+      return state;
     default:
       return state;
   }
