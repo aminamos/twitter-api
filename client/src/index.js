@@ -6,6 +6,11 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import rootReducer from './reducers/index'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+import Home from './components/routes/Home'
+import About from './components/routes/About'
+import Contact from './components/routes/Contact'
+import NavBar from './components/NavBar'
 import * as serviceWorker from './serviceWorker';
 
 // const store = createStore(rootReducer, applyMiddleware(thunk))
@@ -18,7 +23,14 @@ const store = createStore(rootReducer, /* preloadedState, */ composeEnhancers(
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <Router>
+      <div>
+        <NavBar />
+        <Route exact path='/' component={App} />
+        <Route exact path='/about' component={About} />
+        <Route exact path='/contact' component={Contact} />
+      </div>
+    </Router>
   </Provider>,
   document.getElementById('root')
 );
