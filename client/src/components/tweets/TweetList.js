@@ -3,11 +3,23 @@ import Tweet from './Tweet'
 import { connect } from 'react-redux'
 
 const TweetList = props => {
-  const tweetMap = props.tweets.map(tweet => {
-    return (
-      <li><Tweet key={tweet.id} text={tweet.text} /></li>
-    )
-  })
+
+  function likeTweet() {
+    console.log('liked')
+  }
+
+  function deleteTweet() {
+    console.log('deleted')
+  }
+
+  const tweetMap = props.tweets.map((tweet, i) => 
+      <li key={tweet.id}>
+        <Tweet text={tweet.text} />
+        <button onClick={() => likeTweet()}>like tweet</button>
+        <button onClick={() => deleteTweet()}>delete tweet</button>
+      </li>
+  )
+
   return (
     <ul>
       {tweetMap}
