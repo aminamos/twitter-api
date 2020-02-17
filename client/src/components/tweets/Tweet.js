@@ -2,7 +2,7 @@ import React from 'react'
 
 const Tweet = props => {
   return (
-    <div>
+    <div className='tweet'>
       {props.text}
     </div>
   )
