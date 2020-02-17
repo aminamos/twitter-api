@@ -7,9 +7,9 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import rootReducer from './reducers/index'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
-import Home from './components/routes/Home'
 import About from './components/routes/About'
 import Contact from './components/routes/Contact'
+import Careers from './components/routes/Careers'
 import NavBar from './components/NavBar'
 import * as serviceWorker from './serviceWorker';
 
@@ -29,6 +29,7 @@ ReactDOM.render(
         <Route exact path='/' component={App} />
         <Route exact path='/about' component={About} />
         <Route exact path='/contact' component={Contact} />
+        <Route exact path='/careers' component={Careers} />
       </div>
     </Router>
   </Provider>,

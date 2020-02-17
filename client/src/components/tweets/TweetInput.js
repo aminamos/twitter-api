@@ -17,6 +17,7 @@ class TweetInput extends Component {
   handleSubmit = event => {
     event.preventDefault()
     this.props.postTweet(this.state)
+    document.getElementById('text-box').value = ''
   }
 
   render() {
@@ -26,6 +27,7 @@ class TweetInput extends Component {
             <label>Post tweet</label>
             <input
               type="text"
+              id="text-box"
               onChange={event => this.handleChange(event)}
               value={this.state.inputText}
             />

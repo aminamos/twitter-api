@@ -8,6 +8,7 @@ export default class NavBar extends Component {
         <NavLink to='/'>Home</NavLink>
         <NavLink to='/about'>About</NavLink>
         <NavLink to='/contact'>Contact Us</NavLink>
+        <NavLink to='/careers'>Careers</NavLink>
       </div>
     )
   }

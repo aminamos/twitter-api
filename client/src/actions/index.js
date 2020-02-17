@@ -31,4 +31,5 @@ export const postTweet = state => {
   };
 };
 
+// when user functionality is added
 export const getUsers = () => {};
