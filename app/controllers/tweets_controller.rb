@@ -30,7 +30,8 @@ class TweetsController < ApplicationController
   # PATCH/PUT /tweets/1.json
   def update
     if @tweet.update(tweet_params)
-      render :show, status: :ok, location: @tweet
+      # render :show, status: :ok, location: @tweet
+      render json: @tweet
     else
       render json: @tweet.errors, status: :unprocessable_entity
     end
@@ -44,6 +45,7 @@ class TweetsController < ApplicationController
     end
     
     @tweet.destroy
+    render json: @tweet
   end
 
   private

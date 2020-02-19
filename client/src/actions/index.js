@@ -56,5 +56,27 @@ export const likeTweet = tweet => {
   };
 }
 
+export const deleteTweet = tweet => {
+  return dispatch => {
+    let eventObj = {
+      tweet: {
+      }
+    }
+
+    let configObj = {
+      method: 'DELETE',
+      body: JSON.stringify(eventObj),
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json'
+      }
+    };
+    
+    fetch(`http://localhost:3000/tweets/${tweet.id}`,configObj)
+      .then(resp => resp.json())
+      .then(obj => dispatch({ type: 'REMOVE_TWEET', payload: tweet}));
+  };
+}
+
 // when user functionality is added
 export const getUsers = () => {};

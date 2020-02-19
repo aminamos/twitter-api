@@ -1,7 +1,7 @@
 import React from 'react'
 import TweetBox from './TweetBox'
 import { connect } from 'react-redux'
-import { likeTweet } from '../../actions/index'
+import { likeTweet, deleteTweet } from '../../actions/index'
 
 const TweetList = props => {
 
@@ -10,10 +10,11 @@ const TweetList = props => {
     props.likeTweet(likedTweet[0])
   }
 
-  function deleteTweet() {
-    console.log('deleted')
+  function deleteTweet(e) {
+    const deletedTweet =  props.tweets.filter(tweet => tweet.id == e.target.id)
+    props.deleteTweet(deletedTweet[0])
   }
-
+  
   const tweetMap = props.tweets.map((tweet, i) => 
       <li key={tweet.id}>
         <TweetBox text={tweet.text} id={tweet.id} numLikes={tweet.num_likes} />
@@ -38,7 +39,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    likeTweet: (stateObject) => dispatch(likeTweet(stateObject))
+    likeTweet: (stateObject) => dispatch(likeTweet(stateObject)),
+    deleteTweet: (stateObject) => dispatch(deleteTweet(stateObject))
   }
 }
 
