@@ -1,11 +1,11 @@
 import React from 'react'
-import Tweet from './Tweet'
+import TweetBox from './TweetBox'
 import { connect } from 'react-redux'
 
 const TweetList = props => {
 
-  function likeTweet() {
-    console.log('liked')
+  function likeTweet(e) {
+    console.log(e.target.id)
   }
 
   function deleteTweet() {
@@ -14,9 +14,9 @@ const TweetList = props => {
 
   const tweetMap = props.tweets.map((tweet, i) => 
       <li key={tweet.id}>
-        <Tweet text={tweet.text} />
-        <button onClick={() => likeTweet()}>like tweet</button>
-        <button onClick={() => deleteTweet()}>delete tweet</button>
+        <TweetBox text={tweet.text} id={tweet.id} />
+        <button id={tweet.id} onClick={e => likeTweet(e)}>like tweet</button>
+        <button id={tweet.id} onClick={e => deleteTweet(e)}>delete tweet</button>
       </li>
   )
 

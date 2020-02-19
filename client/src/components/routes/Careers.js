@@ -8,4 +8,4 @@ const Careers = () => {
   );
 };
 
-export default Careers
+export default Careers;

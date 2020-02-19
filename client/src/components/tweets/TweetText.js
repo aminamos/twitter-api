@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Tweet = props => {
+const TweetText = props => {
   return (
     <div className='tweet'>
       {props.text}
@@ -8,4 +8,4 @@ const Tweet = props => {
   )
 }
 
-export default Tweet
+export default TweetText
