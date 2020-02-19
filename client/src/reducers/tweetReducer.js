@@ -27,6 +27,15 @@ const tweetReducer = (state = initialState, action) => {
       }
     case 'REMOVE_TWEET':
       return state;
+    case 'LIKE_TWEET':
+      const tweetToUpdate = state.tweets.filter(tweet => tweet.id == action.payload.id)
+
+      tweetToUpdate[0].num_likes += 1
+      
+      return {
+        ...state,
+        tweets: [...state.tweets, tweetToUpdate]
+      }
     default:
       return state;
   }
